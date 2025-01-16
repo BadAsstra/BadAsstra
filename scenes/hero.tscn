@@ -1,17 +1,80 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn6bfdjxxi0t1"]
+[gd_scene load_steps=10 format=3 uid="uid://bn6bfdjxxi0t1"]
 
-[ext_resource type="Script" path="res://scenes/hero.gd" id="1_ykt0n"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_s8d4c"]
+[ext_resource type="Texture2D" uid="uid://b3ptgdfcsgdc6" path="res://assests/hero_sprite.png" id="2_n8p1t"]
+
+[sub_resource type="GDScript" id="GDScript_vynoy"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvtrp"]
+atlas = ExtResource("2_n8p1t")
+region = Rect2(0, 0, 118, 172)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3niel"]
+atlas = ExtResource("2_n8p1t")
+region = Rect2(118, 0, 118, 172)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8tsf"]
+atlas = ExtResource("2_n8p1t")
+region = Rect2(236, 0, 118, 172)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8taww"]
+atlas = ExtResource("2_n8p1t")
+region = Rect2(354, 0, 118, 172)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ix4mh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvtrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3niel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8tsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8taww")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 11.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sgl4q"]
-height = 40.0
+radius = 6.0
+height = 22.0
 
 [node name="Hero" type="Node2D"]
-script = ExtResource("1_ykt0n")
+position = Vector2(28, -16)
+script = SubResource("GDScript_vynoy")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(-28, -13)
+script = ExtResource("1_s8d4c")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(27, 10)
+scale = Vector2(0.170904, 0.170904)
+sprite_frames = SubResource("SpriteFrames_ix4mh")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.459309
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(27, 13)
 shape = SubResource("CapsuleShape2D_sgl4q")
 debug_color = Color(0.195789, 0.531801, 0.943102, 0.42)
-
-[node name="Camera2D" type="Camera2D" parent="."]

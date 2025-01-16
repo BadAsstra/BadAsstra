@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn6bfdjxxi0t1"]
+
+[ext_resource type="Script" path="res://scenes/hero.gd" id="1_ykt0n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sgl4q"]
+height = 40.0
+
+[node name="Hero" type="Node2D"]
+script = ExtResource("1_ykt0n")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_sgl4q")
+debug_color = Color(0.195789, 0.531801, 0.943102, 0.42)
+
+[node name="Camera2D" type="Camera2D" parent="."]

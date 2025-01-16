@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgoqr12s7rjte"]
+
+[ext_resource type="Texture2D" uid="uid://c2e6x81swaw0q" path="res://assests/lvl_1_moon.jpg" id="1_ocnoi"]
+
+[node name="background" type="Parallax2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Lvl1Moon" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(-179, 330)
+texture = ExtResource("1_ocnoi")

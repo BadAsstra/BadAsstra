@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://036ohbvww20u"]
+
+[sub_resource type="Environment" id="Environment_mupmw"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_78mpf"]
+
+[sub_resource type="Compositor" id="Compositor_2c83x"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mupmw")
+camera_attributes = SubResource("CameraAttributesPractical_78mpf")
+compositor = SubResource("Compositor_2c83x")

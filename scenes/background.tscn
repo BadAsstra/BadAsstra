@@ -9,5 +9,6 @@
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Lvl1Moon" type="Sprite2D" parent="ParallaxBackground"]
-position = Vector2(-179, 330)
+position = Vector2(589, 224)
+scale = Vector2(0.568889, 0.568889)
 texture = ExtResource("1_ocnoi")
